@@ -41,9 +41,9 @@ let state = {
   },
   interviewNotes: '',
   plannerUrls: {
-    a: 'http://localhost:5173',
-    b: 'http://localhost:5173',
-    discovery: 'http://localhost:5173'
+    a: 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/',
+    b: 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/',
+    discovery: 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/'
   }
 };
 
@@ -443,13 +443,13 @@ function loadProgress() {
       }
 
       // URLs
-      document.getElementById('planner-url-a').value = state.plannerUrls.a || 'http://localhost:5173';
-      document.getElementById('planner-url-b').value = state.plannerUrls.b || 'http://localhost:5173';
-      document.getElementById('planner-url-discovery').value = state.plannerUrls.discovery || 'http://localhost:5173';
+      document.getElementById('planner-url-a').value = state.plannerUrls.a || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('planner-url-b').value = state.plannerUrls.b || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('planner-url-discovery').value = state.plannerUrls.discovery || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
 
-      document.getElementById('link-planner-a').href = state.plannerUrls.a || 'http://localhost:5173';
-      document.getElementById('link-planner-b').href = state.plannerUrls.b || 'http://localhost:5173';
-      document.getElementById('link-planner-discovery').href = state.plannerUrls.discovery || 'http://localhost:5173';
+      document.getElementById('link-planner-a').href = state.plannerUrls.a || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('link-planner-b').href = state.plannerUrls.b || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('link-planner-discovery').href = state.plannerUrls.discovery || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
 
       // Notes
       document.getElementById('interview-notes').value = state.interviewNotes || '';
