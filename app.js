@@ -427,14 +427,34 @@ function loadProgress() {
       // Merge values safely
       state = { ...state, ...parsed };
 
+      // Migration: automatically update any old k4long0u6 URLs to the new production URL
+      const prodUrl = 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
+      if (state.plannerUrls) {
+        ['a', 'b', 'discovery'].forEach(key => {
+          if (state.plannerUrls[key] && state.plannerUrls[key].includes('k4long0u6')) {
+            state.plannerUrls[key] = prodUrl;
+          }
+        });
+      }
+
+      // Helper functions for safe UI population
+      const setVal = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.value = val;
+      };
+      const setHref = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.href = val;
+      };
+
       // Populate inputs from state
       // Demographics
-      document.getElementById('participant-id').value = state.demographics.participantId || '';
-      document.getElementById('age').value = state.demographics.age || '';
-      document.getElementById('gender').value = state.demographics.gender || '';
-      document.getElementById('major').value = state.demographics.major || '';
-      document.getElementById('semester').value = state.demographics.semester || '';
-      document.getElementById('experience').value = state.demographics.experience || '';
+      setVal('participant-id', state.demographics.participantId || '');
+      setVal('age', state.demographics.age || '');
+      setVal('gender', state.demographics.gender || '');
+      setVal('major', state.demographics.major || '');
+      setVal('semester', state.demographics.semester || '');
+      setVal('experience', state.demographics.experience || '');
 
       // Consent
       const consentChk = document.getElementById('recording-consent-chk');
@@ -443,16 +463,16 @@ function loadProgress() {
       }
 
       // URLs
-      document.getElementById('planner-url-a').value = state.plannerUrls.a || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
-      document.getElementById('planner-url-b').value = state.plannerUrls.b || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
-      document.getElementById('planner-url-discovery').value = state.plannerUrls.discovery || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
+      setVal('planner-url-a', state.plannerUrls.a || prodUrl);
+      setVal('planner-url-b', state.plannerUrls.b || prodUrl);
+      setVal('planner-url-discovery', state.plannerUrls.discovery || prodUrl);
 
-      document.getElementById('link-planner-a').href = state.plannerUrls.a || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
-      document.getElementById('link-planner-b').href = state.plannerUrls.b || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
-      document.getElementById('link-planner-discovery').href = state.plannerUrls.discovery || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
+      setHref('link-planner-a', state.plannerUrls.a || prodUrl);
+      setHref('link-planner-b', state.plannerUrls.b || prodUrl);
+      setHref('link-planner-discovery', state.plannerUrls.discovery || prodUrl);
 
       // Notes
-      document.getElementById('interview-notes').value = state.interviewNotes || '';
+      setVal('interview-notes', state.interviewNotes || '');
 
       // Radio selections helper
       const restoreRadios = (prefix, dataObj) => {
