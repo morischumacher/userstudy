@@ -4,6 +4,9 @@
 // CONFIGURATION: Set where to save the study results.
 const SAVE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx88GVD3UqyDOSz978SMnib57sSR_sflRrjdImRVnAY7RHUrkq4M1JlMwAfPjxf8AsD/exec';
 
+// Load default Study Planner URL from env configuration or use fallback
+const DEFAULT_PLANNER_URL = window.ENV_STUDY_PLANNER_URL || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
+
 let state = {
   currentStep: 0,
   language: 'en',
@@ -41,9 +44,9 @@ let state = {
   },
   interviewNotes: '',
   plannerUrls: {
-    a: 'https://studyplanner-moritz-schumachers-projects.vercel.app/',
-    b: 'https://studyplanner-moritz-schumachers-projects.vercel.app/',
-    discovery: 'https://studyplanner-moritz-schumachers-projects.vercel.app/'
+    a: DEFAULT_PLANNER_URL,
+    b: DEFAULT_PLANNER_URL,
+    discovery: DEFAULT_PLANNER_URL
   }
 };
 
@@ -428,11 +431,10 @@ function loadProgress() {
       state = { ...state, ...parsed };
 
       // Migration: automatically update any old k4long0u6 URLs to the new production URL
-      const prodUrl = 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
       if (state.plannerUrls) {
         ['a', 'b', 'discovery'].forEach(key => {
           if (state.plannerUrls[key] && state.plannerUrls[key].includes('k4long0u6')) {
-            state.plannerUrls[key] = prodUrl;
+            state.plannerUrls[key] = DEFAULT_PLANNER_URL;
           }
         });
       }
@@ -463,13 +465,13 @@ function loadProgress() {
       }
 
       // URLs
-      setVal('planner-url-a', state.plannerUrls.a || prodUrl);
-      setVal('planner-url-b', state.plannerUrls.b || prodUrl);
-      setVal('planner-url-discovery', state.plannerUrls.discovery || prodUrl);
+      setVal('planner-url-a', state.plannerUrls.a || DEFAULT_PLANNER_URL);
+      setVal('planner-url-b', state.plannerUrls.b || DEFAULT_PLANNER_URL);
+      setVal('planner-url-discovery', state.plannerUrls.discovery || DEFAULT_PLANNER_URL);
 
-      setHref('link-planner-a', state.plannerUrls.a || prodUrl);
-      setHref('link-planner-b', state.plannerUrls.b || prodUrl);
-      setHref('link-planner-discovery', state.plannerUrls.discovery || prodUrl);
+      setHref('link-planner-a', state.plannerUrls.a || DEFAULT_PLANNER_URL);
+      setHref('link-planner-b', state.plannerUrls.b || DEFAULT_PLANNER_URL);
+      setHref('link-planner-discovery', state.plannerUrls.discovery || DEFAULT_PLANNER_URL);
 
       // Notes
       setVal('interview-notes', state.interviewNotes || '');
