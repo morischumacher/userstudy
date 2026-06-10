@@ -2,7 +2,7 @@
 // Manages state, timers, local storage resilience, language toggle, and JSON export.
 
 // CONFIGURATION: Set where to save the study results.
-const SAVE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx88GVD3UqyDOSz978SMnib57sSR_sflRrjdImRVnAY7RHUrkq4M1JlMwAfPjxf8AsD/exec';
+let SAVE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx88GVD3UqyDOSz978SMnib57sSR_sflRrjdImRVnAY7RHUrkq4M1JlMwAfPjxf8AsD/exec';
 
 // Load default Study Planner URL from env configuration or use fallback
 const DEFAULT_PLANNER_URL = window.ENV_STUDY_PLANNER_URL || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
@@ -54,6 +54,9 @@ let timerInterval = null;
 
 // Page Load Initialization
 window.addEventListener('DOMContentLoaded', () => {
+  // Load configuration from Serverless Function
+  loadConfig();
+
   // Try to load existing progress
   loadProgress();
 
@@ -629,5 +632,26 @@ function resetSession() {
 
     // Reload page
     window.location.reload();
+  }
+}
+
+// Fetch configuration from Serverless Function
+async function loadConfig() {
+  try {
+    const res = await fetch('/api/config');
+    if (res.ok) {
+      const data = await res.json();
+      if (data.saveEndpoint) {
+        SAVE_ENDPOINT = data.saveEndpoint;
+      }
+      if (data.videoUrl) {
+        const btnVideo = document.getElementById('btn-video-tutorial');
+        if (btnVideo) {
+          btnVideo.href = data.videoUrl;
+        }
+      }
+    }
+  } catch (err) {
+    console.warn("Could not load configuration from serverless API, using defaults.", err);
   }
 }

@@ -223,8 +223,8 @@
           <div class="consent-box" style="margin-top: 24px; padding: 20px; background: rgba(255, 255, 255, 0.6); border: 1px solid var(--border-color); border-radius: var(--border-radius-md);">
             <h3 class="lang-en" style="margin-bottom: 12px; color: var(--danger);">🔴 Recording Permission</h3>
             <h3 class="lang-de" style="margin-bottom: 12px; color: var(--danger);">🔴 Einverständniserklärung</h3>
-            <p class="lang-en" style="font-size: 14px; margin-bottom: 16px;">Please note that screen and audio will be recorded externally.</p>
-            <p class="lang-de" style="font-size: 14px; margin-bottom: 16px;">Bitte beachten Sie, dass Bildschirm und Ton extern aufgezeichnet werden.</p>
+            <p class="lang-en" style="font-size: 14px; margin-bottom: 16px;">Ensure that your screen and audio recording software has been started by the researcher before you proceed.</p>
+            <p class="lang-de" style="font-size: 14px; margin-bottom: 16px;">Stellen Sie sicher, dass Ihre Bildschirm- und Tonaufzeichnungs-Software vom Versuchsleiter gestartet wurde, bevor Sie fortfahren.</p>
             
             <label class="checkbox-container" style="display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-size: 14px; font-weight: 500;">
               <input type="checkbox" id="recording-consent-chk" style="margin-top: 3px; transform: scale(1.1);">
@@ -258,19 +258,20 @@
         </div>
         
         <div class="card-body">
-          <div class="video-container" style="display: flex; flex-direction: column; align-items: center; gap: 16px; width: 100%;">
-            <!-- Video Player Element -->
-            <div style="position: relative; width: 100%; max-width: 640px; aspect-ratio: 16/9; background: #000; border-radius: var(--border-radius-md); overflow: hidden; border: 1px solid var(--border-color);">
-              <video controls style="width: 100%; height: 100%; object-fit: contain;" poster="video-poster.png">
-                <source src="tutorial.mp4" type="video/mp4">
-                <source src="tutorial.webm" type="video/webm">
-                Your browser does not support the video tag.
-              </video>
+          <div class="video-container" style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; padding: 20px 0;">
+            <div class="instruction-block" style="width: 100%; max-width: 600px;">
+              <p class="lang-en">Before starting the scenarios, please watch the short tutorial video explaining the core functionalities of the study planner tool.</p>
+              <p class="lang-de">Bevor Sie mit den Szenarien beginnen, schauen Sie sich bitte das kurze Einführungsvideo an, in dem die wichtigsten Funktionen des Studienplaners erklärt werden.</p>
             </div>
             
-            <div class="info-banner" style="width: 100%; max-width: 640px; margin-top: 8px;">
-              <p class="lang-en">ℹ️ <strong>Note:</strong> If the video does not load, the researcher will show it to you or provide a separate link. Once finished, click the button below to start Scenario A.</p>
-              <p class="lang-de">ℹ️ <strong>Hinweis:</strong> Falls das Video nicht gelädt, wird Ihnen der Versuchsleiter das Video zeigen oder einen separaten Link bereitstellen. Klicken Sie danach auf Weiter, um Szenario A zu starten.</p>
+            <a href="tutorial.mp4" id="btn-video-tutorial" target="_blank" class="btn btn-action btn-pulse-purple" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 14px 28px; font-size: 16px; font-weight: 600;">
+              <span class="lang-en">Watch Video Tutorial <span class="external-icon">↗</span></span>
+              <span class="lang-de">Video-Einführung ansehen <span class="external-icon">↗</span></span>
+            </a>
+            
+            <div class="info-banner" style="width: 100%; max-width: 600px;">
+              <p class="lang-en">ℹ️ <strong>Note:</strong> The link opens in a new tab. If the video does not load, the researcher will show it to you directly. Once finished, return to this tab and click the button below to start Scenario A.</p>
+              <p class="lang-de">ℹ️ <strong>Hinweis:</strong> Der Link öffnet sich in einem neuen Tab. Falls das Video nicht geladen werden kann, wird der Versuchsleiter es Ihnen zeigen. Kehren Sie danach hierher zurück und klicken Sie auf Weiter, um Szenario A zu starten.</p>
             </div>
           </div>
         </div>
@@ -312,8 +313,8 @@
           <div class="info-banner" style="background: rgba(79, 70, 229, 0.08); border-color: rgba(79, 70, 229, 0.25); margin-bottom: 20px;">
             <h4 class="lang-en" style="color: var(--primary); margin-bottom: 4px;">⚠️ Condition: Baseline (Without Graph)</h4>
             <h4 class="lang-de" style="color: var(--primary); margin-bottom: 4px;">⚠️ Bedingung: Vergleichsgruppe (Ohne Graph)</h4>
-            <p class="lang-en">For this scenario, you will plan using the tool excluding the visual graph.</p>
-            <p class="lang-de">In diesem Szenario nutzen Sie das Tool unter Ausschluss des visuellen Graphen.</p>
+            <p class="lang-en">For this scenario, you will plan without using the visual graph.</p>
+            <p class="lang-de">In diesem Szenario planen Sie ohne den visuellen Graphen.</p>
           </div>
 
           <div class="scenario-grid">
