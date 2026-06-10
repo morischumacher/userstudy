@@ -41,9 +41,9 @@ let state = {
   },
   interviewNotes: '',
   plannerUrls: {
-    a: 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/',
-    b: 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/',
-    discovery: 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/'
+    a: 'https://studyplanner-moritz-schumachers-projects.vercel.app/',
+    b: 'https://studyplanner-moritz-schumachers-projects.vercel.app/',
+    discovery: 'https://studyplanner-moritz-schumachers-projects.vercel.app/'
   }
 };
 
