@@ -443,13 +443,13 @@ function loadProgress() {
       }
 
       // URLs
-      document.getElementById('planner-url-a').value = state.plannerUrls.a || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
-      document.getElementById('planner-url-b').value = state.plannerUrls.b || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
-      document.getElementById('planner-url-discovery').value = state.plannerUrls.discovery || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('planner-url-a').value = state.plannerUrls.a || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('planner-url-b').value = state.plannerUrls.b || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('planner-url-discovery').value = state.plannerUrls.discovery || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
 
-      document.getElementById('link-planner-a').href = state.plannerUrls.a || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
-      document.getElementById('link-planner-b').href = state.plannerUrls.b || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
-      document.getElementById('link-planner-discovery').href = state.plannerUrls.discovery || 'https://studyplanner-k4long0u6-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('link-planner-a').href = state.plannerUrls.a || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('link-planner-b').href = state.plannerUrls.b || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
+      document.getElementById('link-planner-discovery').href = state.plannerUrls.discovery || 'https://studyplanner-moritz-schumachers-projects.vercel.app/';
 
       // Notes
       document.getElementById('interview-notes').value = state.interviewNotes || '';
